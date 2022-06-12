@@ -1,5 +1,7 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
+import 'package:volume_controller/volume_controller.dart';
 
 class CameraPage extends StatefulWidget {
   final List<CameraDescription>? cameras;
@@ -11,6 +13,7 @@ class CameraPage extends StatefulWidget {
 
 class _CameraPageState extends State<CameraPage> {
   late CameraController controller;
+
   @override
   void initState() {
     super.initState();
@@ -21,11 +24,14 @@ class _CameraPageState extends State<CameraPage> {
       }
       setState(() {});
     });
+    VolumeController().listener((volume) {
+      _captureImage();
+    });
   }
 
   @override
   void dispose() {
-    // controller?.dispose();
+    VolumeController().removeListener();
     super.dispose();
   }
 
@@ -57,6 +63,7 @@ class _CameraPageState extends State<CameraPage> {
   }
 
   _captureImage() async {
+    print("capturing image");
     var pictureFile = await controller.takePicture();
     Navigator.pop(context, pictureFile);
   }

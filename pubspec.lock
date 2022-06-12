@@ -268,13 +268,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.11.1"
-  perfect_volume_control:
-    dependency: "direct main"
-    description:
-      name: perfect_volume_control
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.5"
   plugin_platform_interface:
     dependency: transitive
     description:
@@ -385,6 +378,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.2"
+  volume_controller:
+    dependency: "direct main"
+    description:
+      name: volume_controller
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.3"
 sdks:
   dart: ">=2.17.0-0 <3.0.0"
   flutter: ">=2.8.0"
