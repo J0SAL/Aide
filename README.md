@@ -1,4 +1,4 @@
-# blip
+# AIDE
 
 A new Flutter project.
 
