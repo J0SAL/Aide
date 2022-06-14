@@ -8,4 +8,4 @@ class MockPredRepository implements PredictionRepository {
   }
 }
 
-var prediction = Prediction(result: "mock answer");
+var prediction = Prediction(result: "stop");

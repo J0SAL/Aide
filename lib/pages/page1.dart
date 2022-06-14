@@ -54,7 +54,7 @@ class _Home extends State<Home> implements PredictionViewContract {
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
         title: const Text(
-          "BLIP",
+          "AIDE",
           style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
@@ -220,8 +220,8 @@ class _Home extends State<Home> implements PredictionViewContract {
 
   _listen() async {
     if (!_isListening) {
+      speak("Listening");
       setState(() => _isListening = true);
-      // speak("Listening");
       bool available = await _speech.initialize(
         onStatus: (val) => print('onStatus: $val'),
         onError: (val) => print('onError: $val'),
@@ -235,9 +235,9 @@ class _Home extends State<Home> implements PredictionViewContract {
         );
       }
     } else {
-      // speak("Question Added");
       setState(() => _isListening = false);
       _speech.stop();
+      speak("Question Added");
     }
   }
 
@@ -252,8 +252,10 @@ class _Home extends State<Home> implements PredictionViewContract {
     Navigator.push(
       context,
       MaterialPageRoute(
-          builder: (context) =>
-              Result(prediction: prediction, imagePath: imagePath)),
+          builder: (context) => Result(
+              prediction: prediction,
+              imagePath: imagePath,
+              question: _controller.text)),
     );
   }
 

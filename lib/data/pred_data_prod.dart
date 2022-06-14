@@ -6,14 +6,14 @@ import 'package:dio/dio.dart';
 import './pred_data.dart';
 
 class ProdPredRepository implements PredictionRepository {
-  String BASE_URL = "http://9f2a-35-227-86-159.ngrok.io";
+  String BASE_URL = "https://img-caption-api.herokuapp.com";
 
   @override
   Future<Prediction> fetchData(String imagePath, String question) async {
     try {
       String fileName = imagePath.split('/').last;
       var formData = FormData.fromMap({
-        'file': await MultipartFile.fromFile(imagePath, filename: fileName),
+        'image': await MultipartFile.fromFile(imagePath, filename: fileName),
         'question': question
       });
       String url;
@@ -35,7 +35,6 @@ class ProdPredRepository implements PredictionRepository {
       }
       return Prediction.fromJson(response.data);
     } catch (e) {
-      print(e);
       return Prediction.fromJson({'caption': 'Something Went Wrong'});
     }
   }

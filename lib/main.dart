@@ -7,7 +7,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 
 void main() {
-  Injector.configure(Flavor.MOCK);
+  Injector.configure(Flavor.PROD);
   runApp(MyApp());
 }
 

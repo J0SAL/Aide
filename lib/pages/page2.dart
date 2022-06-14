@@ -8,7 +8,12 @@ import 'package:translator/translator.dart';
 class Result extends StatefulWidget {
   Prediction prediction;
   String imagePath;
-  Result({Key? key, required this.prediction, required this.imagePath})
+  String question;
+  Result(
+      {Key? key,
+      required this.prediction,
+      required this.imagePath,
+      required this.question})
       : super(key: key);
   @override
   State<Result> createState() => _SecondRouteState();
@@ -26,11 +31,21 @@ class _SecondRouteState extends State<Result> {
     ["Spanish", "es"]
   ];
 
+  Future<void> setLanguage() async {
+    await fluttertts.setLanguage("en");
+  }
+
   @override
   void initState() {
     super.initState();
     input = widget.prediction.result;
     speak(widget.prediction.result);
+  }
+
+  @override
+  void dispose() {
+    setLanguage();
+    super.dispose();
   }
 
   @override
@@ -48,13 +63,20 @@ class _SecondRouteState extends State<Result> {
         centerTitle: true,
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            resultText(),
-            imagePreview(),
-            translateButton(),
-          ],
+        child: SingleChildScrollView(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+                minHeight: MediaQuery.of(context).size.height * 0.8),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                resultText(),
+                imagePreview(),
+                translateButton(),
+              ],
+            ),
+          ),
         ),
       ),
     );
@@ -63,14 +85,26 @@ class _SecondRouteState extends State<Result> {
   resultText() {
     return Padding(
       padding: EdgeInsets.all(10),
-      child: Text(
-        input,
-        style: const TextStyle(
-          fontSize: 25,
-          fontWeight: FontWeight.bold,
-          color: Colors.black,
-          letterSpacing: 1.3,
-        ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            (widget.question == "") ? "Caption: " : "Answer: ",
+            style: const TextStyle(
+              fontSize: 20,
+              color: Colors.black,
+            ),
+          ),
+          Text(
+            input,
+            style: const TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              letterSpacing: 1.3,
+            ),
+          ),
+        ],
       ),
     );
   }

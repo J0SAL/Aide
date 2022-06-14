@@ -11,7 +11,7 @@
         </intent>
     </queries>
    <application
-        android:label="blip"
+        android:label="Aide"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
