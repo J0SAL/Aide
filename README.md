@@ -1,4 +1,6 @@
 # AIDE
+The aim of the application is to provide assistance to Visually Challenged Individuals with the power of image captioning and VQA (Visual Question Answering)!
+
 
 [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/J0SAL/Aide?logo=github&style=for-the-badge)](https://github.com/J0SAL/) 
 [![GitHub last commit](https://img.shields.io/github/last-commit/J0SAL/Aide?style=for-the-badge&logo=git)](https://github.com/J0SAL/) 
