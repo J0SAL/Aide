@@ -48,6 +48,8 @@ flutter run
 ```
 
 
-## Contact 📞
+## Developers Contact 📞
 
-If you have any doubt or want to contribute feel free to email me or hit me up on [LinkedIn](https://linkedin.com/in/joy-almeida0)
+1. [Joy Almeida](https://linkedin.com/in/joy-almeida0)
+2. [Kristen Pereira](https://www.linkedin.com/in/kristen-pereira-846673214/)
+3. [Rushil Patel](https://www.linkedin.com/in/rushil-patel-7b03331b4/)
