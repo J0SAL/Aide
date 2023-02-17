@@ -9,6 +9,8 @@ The aim of the application is to provide assistance to Visually Challenged Indiv
 
 App Can be downloaded from [here](https://drive.google.com/file/d/1NYjzN_gT-s5hc6oX1v0rbW26hif88mRJ/view?usp=sharing)
 
+Publication [IEEE](https://ieeexplore.ieee.org/document/10040196)
+
 ## About
 A mobile application built using MVP architecture in Flutter which leverages the power of image processing, and deep learning techniques to identify and describe the current scene through the camera and inform it to the user by audio cues. Added support for gesture controls like tap, double tap and long-press, for navigating through the app. Includes feature that allows the result be converted and read into multiple languages.
 
